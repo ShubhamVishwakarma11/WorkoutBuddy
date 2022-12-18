@@ -4,13 +4,22 @@ import styles from "../styles/Home.module.css"
 import WorkoutDetails from '../components/WorkoutDetails';
 import WorkoutForm from '../components/WorkoutForm';
 import { useWorkoutContext } from '../hooks/useWorkoutContext';
+import {useAuthContext} from '../hooks/useAuthContext'
 
 export default function Home() {
-    const {workouts, dispatch} = useWorkoutContext();
+    const { user } = useAuthContext()
+    const {workouts, dispatch} = useWorkoutContext()
 
   useEffect( ()=> {
     const fetchWorkouts = async () => {
-      const response = await fetch('/api/workouts')
+      if (!user) {
+        return 
+      }
+      const response = await fetch('/api/workouts', {
+        headers : {
+          'Authorization': `bearer ${user.token}`
+        }
+      })
       const json = await response.json()
       
       if (response.ok) {
@@ -20,7 +29,7 @@ export default function Home() {
 
     fetchWorkouts()
 
-  }, [dispatch])
+  }, [dispatch, user])
 
   return (
     <div className={styles["Home"]}>

@@ -18,3 +18,29 @@
     color: #333;
     text-decoration: none;
 }
+
+.links-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+button {
+    background: #fff;
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--primary);
+    color: var(--primary);
+    padding: 10px;
+    font-family: "Poppins";
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: var(--primary);
+    color: #fff;
+    transition: all ease 0.5s;
+}

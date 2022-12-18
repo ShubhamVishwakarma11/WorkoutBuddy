@@ -6,8 +6,12 @@ const {
     deleteWorkout,
     updateWorkout
 } = require("../controllers/workoutController")
+const requireAuth = require('../middlewares/requireAuth')
 
 const router = express.Router()
+
+// require auth for all workout routes
+router.use(requireAuth)
 
 // get all workouts
 router.get("/", getWorkouts);

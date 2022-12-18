@@ -2,6 +2,7 @@ const dotenv = require('dotenv');
 const express = require('express');
 const mongoose = require("mongoose")
 const workoutRoutes = require("./routes/workouts");
+const userRoutes = require("./routes/users");
 
 
 // express app
@@ -19,6 +20,7 @@ app.use( (req,res,next) => {
 
 // express routes
 app.use("/api/workouts", workoutRoutes);
+app.use("/api/user", userRoutes);
 
 const port = process.env.PORT
 
