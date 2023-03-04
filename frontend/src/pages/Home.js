@@ -15,7 +15,7 @@ export default function Home() {
       if (!user) {
         return 
       }
-      const response = await fetch('/api/workouts', {
+      const response = await fetch(`${process.env.URL}/api/workouts`, {
         headers : {
           'Authorization': `bearer ${user.token}`
         }

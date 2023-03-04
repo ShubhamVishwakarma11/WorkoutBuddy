@@ -13,8 +13,7 @@ const useSignup = () => {
     const signup = async (email, password) => {
         setError(null)
         setIsLoading(true)
-
-        const response = await fetch('/api/user/signup', {
+        const response = await fetch(`${process.env.URL}/api/user/signup`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
