@@ -15,7 +15,7 @@ export default function Home() {
       if (!user) {
         return 
       }
-      const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/workouts`, {
+      const response = await fetch(`${process.env.REACT_APP_URL}/api/workouts`, {
         headers : {
           'Authorization': `bearer ${user.token}`
         }

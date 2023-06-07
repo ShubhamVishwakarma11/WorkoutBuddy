@@ -26,7 +26,7 @@ export default function WorkoutForm() {
 
         const workout = {title, load, reps}
 
-        const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/workouts`, {
+        const response = await fetch(`${process.env.REACT_APP_URL}/api/workouts`, {
             method: "POST",
             body: JSON.stringify(workout),
             headers: {
