@@ -9,13 +9,13 @@ import {useAuthContext} from '../hooks/useAuthContext'
 export default function Home() {
     const { user } = useAuthContext()
     const {workouts, dispatch} = useWorkoutContext()
-
+ 
   useEffect( ()=> {
     const fetchWorkouts = async () => {
       if (!user) {
         return 
       }
-      const response = await fetch(`${process.env.URL}/api/workouts`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/workouts`, {
         headers : {
           'Authorization': `bearer ${user.token}`
         }

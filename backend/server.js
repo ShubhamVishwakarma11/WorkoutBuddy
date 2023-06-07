@@ -16,7 +16,7 @@ app.use( (req,res,next) => {
     console.log(req.path, req.method)
     next()
 })
-
+    
 
 // express routes
 app.use("/api/workouts", workoutRoutes);

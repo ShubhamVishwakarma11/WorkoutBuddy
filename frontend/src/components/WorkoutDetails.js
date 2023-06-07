@@ -14,7 +14,7 @@ export default function WorkoutDetails({workout}) {
     if (!user) {
       return 
     }
-    const response = await fetch(`${process.env.URL}/api/workouts/${workout._id}`,{
+    const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/workouts/${workout._id}`,{
       method:'DELETE',
       headers : {
         'Authorization': `bearer ${user.token}`
